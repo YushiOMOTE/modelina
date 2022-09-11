@@ -1,0 +1,30 @@
+openapi: 3.0.1
+info:
+  title: Test
+paths:
+  /example/api:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Request'
+        required: true
+      responses:
+        200:
+          description: success
+components:
+  schemas:
+    Request:
+      type: object
+      required: ['inputVariable']
+      properties:
+        inputVariable:
+          type: array
+          items:
+            $ref: '#/components/schemas/Variable'
+    Variable:
+      type: object
+      properties:
+        v:
+          type: string
